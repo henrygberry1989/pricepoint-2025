@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/funnel-1/onboarding/success/page": "app/funnel-1/onboarding/success/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/funnel-1/onboarding/trusted/page": "app/funnel-1/onboarding/trusted/page.js",
+  "/funnel-1/page": "app/funnel-1/page.js"
+}

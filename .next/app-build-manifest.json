@@ -1,0 +1,70 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/funnel-1/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/page.js"
+    ],
+    "/funnel-1/onboarding/trusted/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/trusted/page.js"
+    ],
+    "/funnel-1/onboarding/objective/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/objective/page.js"
+    ],
+    "/funnel-1/onboarding/metric-goal/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/metric-goal/page.js"
+    ],
+    "/funnel-1/onboarding/company-url/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/company-url/page.js"
+    ],
+    "/funnel-1/onboarding/loading/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/loading/page.js"
+    ],
+    "/funnel-1/onboarding/recommendations/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/recommendations/page.js"
+    ],
+    "/funnel-1/onboarding/score/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/score/page.js"
+    ],
+    "/funnel-1/onboarding/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/contact/page.js"
+    ],
+    "/funnel-1/onboarding/success/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/funnel-1/onboarding/success/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ]
+  }
+}

@@ -1,81 +1,70 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F9F9F9]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/oil-painting-bg.png"
+          alt="Oil painting background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
         {/* Header */}
-        <header className="py-4">
-          <div className="flex justify-between items-center">
+        <header className="px-6 py-4">
+          <div className="flex items-center">
             <Image
               src="/images/pricepoint-logo.png"
-              alt="Pricepoint"
-              width={150}
-              height={40}
-              priority
+              alt="PricePoint"
+              width={120}
+              height={30}
+              className="h-8 w-auto"
             />
           </div>
         </header>
 
-        {/* Hero Section */}
-        <div className="py-12">
-          <div className="text-center">
-            <h1 className="text-5xl font-playfair text-gray-900 mb-6 max-w-4xl mx-auto">
-              SaaS Monetisation & Growth Consulting That Actually Works
+        {/* Main Content */}
+        <main className="container mx-auto px-4 pt-16 text-center">
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Headline */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight">
+              <span className="text-[#EA592D]">SaaS Monetization & Growth Consultants</span>
+              {' '}helping improve payback & LTV enabling you to{' '}
+              <span className="text-[#EA592D]">outspend competition</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto">
-              To outgrow your competitors, you need to outspend them on acquisition.<br />
-              The key? <span className="text-[#EA592D]">Faster payback periods & greater LTVs</span> through better monetisation.
-            </p>
-            <div className="space-x-4 mb-16">
+
+            {/* CTA Button */}
+            <div>
               <Link 
-                href="/funnel-1" 
-                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#EA592D] hover:bg-[#d54d24]"
+                href="/funnel-1"
+                className="inline-block px-8 py-4 text-xl text-white bg-[#EA592D] rounded-lg hover:bg-[#d54d24] transition-colors"
               >
-                Get Started
+                Grade Your Site for $0
               </Link>
             </div>
 
-            {/* Feature Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto">
+            {/* Dashboard Image */}
+            <div className="mt-12 relative bg-white rounded-2xl shadow-xl p-4 mx-auto max-w-3xl">
               <Image
-                src="/images/feature-revenue.png"
-                alt="Revenue Expansion"
-                width={400}
-                height={400}
-                className="w-full"
-              />
-
-              <Image
-                src="/images/feature-pricing.png"
-                alt="Price Testing"
-                width={400}
-                height={400}
-                className="w-full"
-              />
-
-              <Image
-                src="/images/feature-competitor.png"
-                alt="Competitor Research"
-                width={400}
-                height={400}
-                className="w-full"
-              />
-
-              <Image
-                src="/images/feature-localization.png"
-                alt="Price Localization"
-                width={400}
-                height={400}
-                className="w-full"
+                src="/images/dashboard-preview.png"
+                alt="SaaS Analytics Dashboard"
+                width={1000}
+                height={600}
+                className="w-full h-auto rounded-lg"
               />
             </div>
           </div>
-        </div>
+        </main>
       </div>
-    </main>
+    </div>
   )
 }

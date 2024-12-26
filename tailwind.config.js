@@ -13,6 +13,7 @@ module.exports = {
       },
       fontFamily: {
         playfair: ['var(--font-playfair-display)'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       gridTemplateColumns: {
         '33': 'repeat(33, minmax(0, 1fr))',

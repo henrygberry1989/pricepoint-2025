@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute bottom-0 left-0 right-0 h-2/3 z-0">
         <Image
           src="/images/oil-painting-bg.png"
           alt="Oil painting background"
@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 min-h-screen bg-white">
         {/* Header */}
         <header className="px-6 py-4">
           <div className="flex items-center">
@@ -36,17 +36,17 @@ export default function Home() {
         <main className="container mx-auto px-4 pt-16 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight">
-              <span className="text-[#EA592D]">SaaS Monetization & Growth Consultants</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight leading-tight">
+              <span className="text-[#EA592D] font-serif">SaaS Monetization & Growth Consultants</span>
               {' '}helping improve payback & LTV enabling you to{' '}
-              <span className="text-[#EA592D]">outspend competition</span>
+              <span className="text-[#EA592D] font-serif">outspend competition</span>
             </h1>
 
             {/* CTA Button */}
             <div>
               <Link 
                 href="/funnel-1"
-                className="inline-block px-8 py-4 text-xl text-white bg-[#EA592D] rounded-lg hover:bg-[#d54d24] transition-colors"
+                className="inline-block px-8 py-4 text-xl text-white bg-[#EA592D] rounded-lg hover:bg-[#d54d24] transition-colors font-serif"
               >
                 Grade Your Site for $0
               </Link>

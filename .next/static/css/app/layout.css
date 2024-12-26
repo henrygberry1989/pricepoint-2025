@@ -720,6 +720,9 @@ video {
 .h-2 {
   height: 0.5rem;
 }
+.h-2\/3 {
+  height: 66.666667%;
+}
 .h-4 {
   height: 1rem;
 }
@@ -1284,7 +1287,7 @@ video {
   font-family: var(--font-playfair-display);
 }
 .font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Playfair Display, Georgia, serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1333,6 +1336,9 @@ video {
 }
 .font-semibold {
   font-weight: 600;
+}
+.leading-tight {
+  line-height: 1.25;
 }
 .tracking-tight {
   letter-spacing: -0.025em;

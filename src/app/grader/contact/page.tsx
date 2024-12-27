@@ -247,7 +247,7 @@ export default function ContactPage() {
                 className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
                   ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
               >
-                Continue
+                {isSubmitting ? 'Submitting...' : 'Continue'}
               </button>
             </div>
           </form>
@@ -257,13 +257,12 @@ export default function ContactPage() {
       {/* Mobile Sticky Footer */}
       <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg md:hidden">
         <button
-          type="submit"
-          form="contact-form"
+          onClick={handleSubmit}
           disabled={!isValid || isSubmitting}
           className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
             ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
         >
-          Continue
+          {isSubmitting ? 'Submitting...' : 'Continue'}
         </button>
       </div>
     </main>

@@ -37,8 +37,6 @@ export default function GraderPage() {
   const handleEmailSubmit = (email: string) => {
     // Store email in localStorage to access it later
     localStorage.setItem('userEmail', email)
-    // Store company URL in localStorage
-    localStorage.setItem('company_url', url)
     // Redirect to trust screen
     window.location.href = `/grader/trust?url=${encodeURIComponent(url)}`
   }

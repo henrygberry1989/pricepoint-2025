@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 
 interface Props {
   onSubmit: (email: string) => void;
@@ -9,12 +10,36 @@ interface Props {
 export default function GraderEmailCapture({ onSubmit }: Props) {
   const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const form = e.target as HTMLFormElement
     const email = form.email.value
-    onSubmit(email)
-    router.push('/grader/results')
+
+    try {
+      // Create initial submission in admin table
+      const { error } = await supabase
+        .from('new_submissions')
+        .insert([
+          {
+            email,
+            company_url: localStorage.getItem('company_url') || '',
+            objective: 'Looking for New Growth Channels', // Default objective
+            metric_goal: 'Increase Revenue',  // Default goal
+            completed: false,
+            is_read: false
+          }
+        ])
+
+      if (error) {
+        console.error('Error creating submission:', error)
+        return
+      }
+
+      onSubmit(email)
+      router.push('/grader/results')
+    } catch (error) {
+      console.error('Error in form submission:', error)
+    }
   }
 
   return (

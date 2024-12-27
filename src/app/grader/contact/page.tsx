@@ -74,58 +74,35 @@ export default function ContactPage() {
     }
 
     setIsSubmitting(true)
-    console.log('Setting submitting state to true')
     
     try {
-      // Get the most recent submission
-      const { data: submissions, error: fetchError } = await supabase
-        .from('new_submissions')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(1)
-
-      if (fetchError) {
-        console.error('Error fetching submission:', fetchError)
-        setIsSubmitting(false)
-        return
-      }
-
-      if (!submissions || submissions.length === 0) {
-        console.error('No submission found')
-        setIsSubmitting(false)
-        return
-      }
-
-      const submission = submissions[0]
-
-      // Update the submission with the contact info and mark as completed
-      const { error: updateError } = await supabase
-        .from('new_submissions')
-        .update({
+      // Create a new lead in the admin platform
+      const { error } = await supabase
+        .from('leads')
+        .insert([{
+          email: localStorage.getItem('userEmail') || '',
+          company_url: localStorage.getItem('company_url') || '',
+          objective: 'Looking for New Growth Channels',
+          metric_goal: 'Increase Revenue',
           budget,
           phone_region: phoneRegion,
           phone_number: phoneNumber,
-          completed: true
-        })
-        .eq('id', submission.id)
+          completed: true,
+          is_read: false
+        }])
 
-      if (updateError) {
-        console.error('Error updating submission:', updateError)
+      if (error) {
+        console.error('Error creating lead:', error)
         setIsSubmitting(false)
         return
       }
 
-      console.log('Supabase update successful')
-
-      const handleContinue = () => {
-        if (budget === '0' || budget === '0-1k') {
-          router.push('/grader/not-qualified')
-        } else {
-          router.push('/grader/success')
-        }
+      // Redirect based on budget
+      if (budget === '0' || budget === '0-1k') {
+        router.push('/grader/not-qualified')
+      } else {
+        router.push('/grader/success')
       }
-
-      handleContinue()
     } catch (error) {
       console.error('Error in form submission:', error)
       setIsSubmitting(false)

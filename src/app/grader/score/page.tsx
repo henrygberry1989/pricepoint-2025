@@ -43,7 +43,7 @@ export default function ScorePage() {
 
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-playfair text-gray-900 mb-2">
-            {companyUrl && `${companyUrl}'s `}<span className="font-normal">score</span> is <span className="font-normal">{score.value}/100</span>
+            {companyUrl}'s <span className="font-normal">score</span> is <span className="font-normal">{score.value}/100</span>
           </h1>
           <p className="text-gray-600 mb-12">
             This score is considered to be {score.description}.

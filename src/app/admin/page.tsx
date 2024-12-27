@@ -222,7 +222,7 @@ export default function AdminDashboard() {
           </div>
 
           <div className="bg-white rounded-lg shadow">
-            <div className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr_1fr_1fr] gap-4 px-6 py-3 border-b border-gray-200 text-sm text-gray-500 divide-x divide-gray-200">
+            <div className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr] gap-4 px-6 py-3 border-b border-gray-200 text-sm text-gray-500 divide-x divide-gray-200">
               <div className="flex items-center gap-4">
                 <input
                   type="checkbox"
@@ -230,62 +230,45 @@ export default function AdminDashboard() {
                   onChange={handleSelectAll}
                   className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <span>Contact</span>
               </div>
-              <div>Email</div>
-              <div>Phone</div>
+              <div className="text-left pl-4">Email</div>
+              <div className="text-center pl-4">Phone</div>
               <div className="text-center pl-4">Company</div>
-              <div className="text-center pl-4">Improvement Goal</div>
               <div className="text-center pl-4">Budget</div>
-              <div className="text-center pl-4">Key Objective</div>
             </div>
 
-            {filteredLeads.map((lead) => {
-              const { bg, text } = getObjectivePillColor(lead.objective)
-              const { bg: budgetBg, text: budgetText } = getBudgetPillColor(lead.budget)
-              return (
-                <div
-                  key={lead.id}
-                  className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr_1fr_1fr] gap-4 px-6 py-4 border-b border-gray-100 text-sm items-center hover:bg-gray-50 divide-x divide-gray-200"
-                >
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedLeads.includes(lead.id)}
-                      onChange={() => handleSelectLead(lead.id)}
-                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    />
-                    <button className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600">
-                      {lead.email.charAt(0).toUpperCase()}
-                    </button>
-                  </div>
-                  <div className={`text-center text-gray-900 ${!lead.is_read ? 'font-semibold' : ''}`}>
-                    {lead.email}
-                  </div>
-                  <div className={`text-center text-gray-600 ${!lead.is_read ? 'font-semibold' : ''}`}>
-                    {lead.phone_region} {lead.phone_number}
-                  </div>
-                  <div className="text-center text-gray-600">
-                    {lead.company_url}
-                  </div>
-                  <div className="text-center">
-                    <span className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800">
-                      {lead.metric_goal}
-                    </span>
-                  </div>
-                  <div className="text-center">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium ${budgetBg} ${budgetText}`}>
-                      {lead.budget}
-                    </span>
-                  </div>
-                  <div className="text-center">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium whitespace-nowrap ${bg} ${text}`}>
-                      {lead.objective}
-                    </span>
-                  </div>
+            {filteredLeads.map((lead) => (
+              <div
+                key={lead.id}
+                className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr] gap-4 px-6 py-4 border-b border-gray-100 text-sm items-center hover:bg-gray-50 divide-x divide-gray-200"
+              >
+                <div className="flex items-center gap-4">
+                  <input
+                    type="checkbox"
+                    checked={selectedLeads.includes(lead.id)}
+                    onChange={() => handleSelectLead(lead.id)}
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  <button className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600">
+                    {lead.email.charAt(0).toUpperCase()}
+                  </button>
                 </div>
-              )
-            })}
+                <div className={`text-left pl-4 text-gray-900 ${!lead.is_read ? 'font-semibold' : ''}`}>
+                  {lead.email}
+                </div>
+                <div className={`text-center pl-4 text-gray-600 ${!lead.is_read ? 'font-semibold' : ''}`}>
+                  {lead.phone_region} {lead.phone_number}
+                </div>
+                <div className="text-center pl-4 text-gray-600">
+                  {lead.company_url}
+                </div>
+                <div className="text-center pl-4">
+                  <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium ${getBudgetPillColor(lead.budget).bg} ${getBudgetPillColor(lead.budget).text}`}>
+                    {lead.budget}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

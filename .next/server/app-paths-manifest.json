@@ -1,7 +1,7 @@
 {
   "/grader/page": "app/grader/page.js",
   "/grader/contact/page": "app/grader/contact/page.js",
-  "/grader/results/page": "app/grader/results/page.js",
+  "/grader/score/page": "app/grader/score/page.js",
   "/grader/success/page": "app/grader/success/page.js",
-  "/grader/score/page": "app/grader/score/page.js"
+  "/page": "app/page.js"
 }

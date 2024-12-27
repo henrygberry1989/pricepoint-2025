@@ -50,7 +50,7 @@ export default function GraderPage() {
   return (
     <div className="min-h-screen relative bg-[#F9F9F9]">
       {/* Background Image */}
-      <div className="absolute w-[75%] h-[65%] left-1/2 -translate-x-1/2 bottom-0 rounded-t-lg overflow-hidden">
+      <div className="absolute w-[85%] sm:w-[75%] h-[75%] sm:h-[65%] left-1/2 -translate-x-1/2 bottom-0 rounded-t-lg overflow-hidden">
         <Image
           src="/grader/oil-painting-bg-grader.png"
           alt="Oil painting background"
@@ -63,13 +63,14 @@ export default function GraderPage() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
-        <header className="px-6 py-4 flex items-center">
+        <header className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
           <Image
             src="/grader/pricepoint-logo.png"
             alt="Pricepoint Logo"
             width={120}
             height={40}
             priority
+            className="flex-shrink-0"
           />
 
           {/* Social Proof */}
@@ -86,17 +87,17 @@ export default function GraderPage() {
                 </svg>
               ))}
             </div>
-            <p className="text-sm font-medium text-gray-600">
-              Trusted by 40k+ subscribers
+            <p className="text-sm font-medium text-gray-600 whitespace-nowrap">
+              Trusted by 40k+
             </p>
           </div>
 
-          {/* Empty div for spacing */}
-          <div className="w-[120px]"></div>
+          {/* Empty div for spacing - only show on desktop */}
+          <div className="hidden sm:block w-[120px]"></div>
         </header>
 
         {/* Main Content */}
-        <main className="container mx-auto px-4 flex-grow flex flex-col">
+        <main className="container mx-auto px-4 flex-grow flex flex-col pt-4 sm:pt-0">
           <div className="max-w-4xl mx-auto w-full flex-grow flex flex-col">
             <div className="flex-grow">
               <h1 className="font-['Instrument_Serif'] text-3xl md:text-4xl text-center mb-4 text-[#F15A2B]">

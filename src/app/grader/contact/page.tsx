@@ -66,17 +66,12 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', { budget, phoneRegion, phoneNumber, isValid, isSubmitting })
     
-    if (!isValid || isSubmitting) {
-      console.log('Form validation failed or already submitting')
-      return
-    }
-
+    if (!isValid || isSubmitting) return
+    
     setIsSubmitting(true)
     
     try {
-      // Create a new lead in the admin platform
       const { error } = await supabase
         .from('leads')
         .insert([{
@@ -97,11 +92,10 @@ export default function ContactPage() {
         return
       }
 
-      // Redirect based on budget
       if (budget === '0' || budget === '0-1k') {
-        router.push('/grader/not-qualified')
+        window.location.href = '/grader/not-qualified'
       } else {
-        router.push('/grader/success')
+        window.location.href = '/grader/success'
       }
     } catch (error) {
       console.error('Error in form submission:', error)

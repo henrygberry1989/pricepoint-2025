@@ -10,14 +10,13 @@ export default function ScorePage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const url = searchParams.get('url') || localStorage.getItem('company_url') || ''
-  const [companyUrl, setCompanyUrl] = useState(url)
   const [score, setScore] = useState({ value: 36, description: 'Below Average' })
 
   useEffect(() => {
     // Get URL from query parameters
     const urlParam = searchParams.get('url')
     if (urlParam) {
-      setCompanyUrl(urlParam)
+      localStorage.setItem('company_url', urlParam)
     }
   }, [searchParams])
 
@@ -43,7 +42,7 @@ export default function ScorePage() {
 
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-playfair text-gray-900 mb-2">
-            {companyUrl}'s <span className="font-normal">score</span> is <span className="font-normal">{score.value}/100</span>
+            {url}'s <span className="font-normal">score</span> is <span className="font-normal">{score.value}/100</span>
           </h1>
           <p className="text-gray-600 mb-12">
             This score is considered to be {score.description}.

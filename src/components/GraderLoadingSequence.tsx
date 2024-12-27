@@ -30,7 +30,7 @@ export default function GraderLoadingSequence({ url, onComplete }: Props) {
   useEffect(() => {
     const dotsInterval = setInterval(() => {
       setDots(prev => prev.length >= 3 ? '' : prev + '.')
-    }, 500)
+    }, 300)
 
     return () => clearInterval(dotsInterval)
   }, [])
@@ -44,7 +44,7 @@ export default function GraderLoadingSequence({ url, onComplete }: Props) {
 
     const timer = setTimeout(() => {
       setCurrentStepIndex(prev => prev + 1)
-    }, 2000) // Each step takes 2 seconds
+    }, 1200) // Each step takes 1.2 seconds
 
     return () => clearTimeout(timer)
   }, [currentStepIndex, onComplete])

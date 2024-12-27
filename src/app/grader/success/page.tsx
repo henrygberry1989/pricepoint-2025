@@ -35,10 +35,10 @@ export default function SuccessPage() {
 
         <div className="bg-white rounded-2xl p-8 shadow-sm space-y-6 mb-8 relative">
           {/* Countdown overlay */}
-          <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="absolute inset-0 flex items-start justify-center z-20 pt-16 bg-white/80">
             <div className="text-center">
-              <p className="text-gray-600 mb-2">Redirecting you to booking page in</p>
-              <div className="text-6xl font-bold text-[#EA592D] animate-bounce">
+              <p className="text-gray-800 text-lg mb-4">Redirecting you to booking page in</p>
+              <div className="text-8xl font-bold text-[#EA592D] animate-bounce">
                 {countdown}
               </div>
             </div>

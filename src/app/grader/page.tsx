@@ -34,6 +34,9 @@ export default function GraderPage() {
     const formattedUrl = formatUrl(inputUrl)
     setUrl(formattedUrl)
     setLoading(true)
+    
+    // Navigate to the next page
+    window.location.href = `/grader/score?url=${encodeURIComponent(inputUrl)}`
   }
 
   const handleLoadingComplete = () => {
@@ -50,7 +53,7 @@ export default function GraderPage() {
   return (
     <div className="min-h-screen relative bg-[#F9F9F9]">
       {/* Background Image */}
-      <div className="absolute w-[85%] sm:w-[75%] h-[75%] sm:h-[65%] left-1/2 -translate-x-1/2 bottom-0 rounded-t-lg overflow-hidden">
+      <div className="absolute w-[85%] sm:w-[75%] h-[55%] sm:h-[65%] left-1/2 -translate-x-1/2 bottom-0 rounded-t-lg overflow-hidden">
         <Image
           src="/grader/oil-painting-bg-grader.png"
           alt="Oil painting background"
@@ -104,7 +107,7 @@ export default function GraderPage() {
                 Free SaaS Website Grader
               </h1>
 
-              <div className="max-w-3xl mx-auto text-center mb-8">
+              <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-8">
                 <p className="font-['Instrument_Serif'] text-xl">
                   Grade your website in seconds. Then steal the growth playbooks of billion dollar brands like Grammarly, Atlassian and Notion for free.
                 </p>
@@ -130,7 +133,7 @@ export default function GraderPage() {
             </div>
 
             {/* Results Preview */}
-            <div className="w-[85%] mx-auto mt-auto">
+            <div className="w-[95%] sm:w-[85%] mx-auto mt-auto">
               <Image
                 src="/grader/results-preview.png"
                 alt="Website Grader Results Preview"

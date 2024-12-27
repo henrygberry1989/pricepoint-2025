@@ -5,13 +5,6 @@ import { useState } from 'react'
 import GraderLoadingSequence from '@/components/GraderLoadingSequence'
 import GraderEmailCapture from '@/components/GraderEmailCapture'
 
-const formatUrl = (url: string) => {
-  if (!url.startsWith('http://') && !url.startsWith('https://')) {
-    return `https://${url}`
-  }
-  return url
-}
-
 export default function GraderPage() {
   const [loading, setLoading] = useState(false)
   const [showEmailCapture, setShowEmailCapture] = useState(false)
@@ -31,12 +24,8 @@ export default function GraderPage() {
     // Remove www. if present
     inputUrl = inputUrl.replace(/^www\./, '')
     
-    const formattedUrl = formatUrl(inputUrl)
-    setUrl(formattedUrl)
+    setUrl(inputUrl)
     setLoading(true)
-    
-    // Navigate to the next page
-    window.location.href = `/grader/score?url=${encodeURIComponent(inputUrl)}`
   }
 
   const handleLoadingComplete = () => {
@@ -45,9 +34,10 @@ export default function GraderPage() {
   }
 
   const handleEmailSubmit = (email: string) => {
-    // Here you would typically send the email to your backend
-    console.log('Email submitted:', email)
-    // Redirect to results page or show results
+    // Store email in localStorage to access it later
+    localStorage.setItem('userEmail', email)
+    // Redirect to trust screen
+    window.location.href = `/grader/trust?url=${encodeURIComponent(url)}`
   }
 
   return (

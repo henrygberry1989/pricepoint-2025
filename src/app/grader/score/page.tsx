@@ -8,6 +8,7 @@ import Link from 'next/link'
 export default function ScorePage() {
   const router = useRouter()
   const [companyUrl, setCompanyUrl] = useState('')
+  const [score, setScore] = useState({ value: 36, description: 'Below Average' })
 
   useEffect(() => {
     // Get URL from query parameters
@@ -40,18 +41,18 @@ export default function ScorePage() {
 
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-playfair text-gray-900 mb-2">
-            {companyUrl && `${companyUrl}'s `}<span className="font-normal">score</span> is <span className="font-normal">36/100</span>
+            {companyUrl && `${companyUrl}'s `}<span className="font-normal">score</span> is <span className="font-normal">{score.value}/100</span>
           </h1>
           <p className="text-gray-600 mb-12">
-            This score is considered to be Below Average.
+            This score is considered to be {score.description}.
           </p>
 
           {/* Score Bar */}
           <div className="flex justify-center space-x-1 mb-12">
-            {[...Array(10)].map((_, i) => (
+            {[...Array(Math.floor(score.value / 3.33))].map((_, i) => (
               <div key={i} className="w-2 h-8 bg-[#EA592D] rounded"></div>
             ))}
-            {[...Array(20)].map((_, i) => (
+            {[...Array(30 - Math.floor(score.value / 3.33))].map((_, i) => (
               <div key={i} className="w-2 h-8 bg-gray-200 rounded"></div>
             ))}
           </div>

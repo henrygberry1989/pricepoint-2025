@@ -4,20 +4,22 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 export default function ScorePage() {
   const router = useRouter()
-  const [companyUrl, setCompanyUrl] = useState('')
+  const searchParams = useSearchParams()
+  const url = searchParams.get('url') || localStorage.getItem('company_url') || ''
+  const [companyUrl, setCompanyUrl] = useState(url)
   const [score, setScore] = useState({ value: 36, description: 'Below Average' })
 
   useEffect(() => {
     // Get URL from query parameters
-    const url = new URL(window.location.href)
-    const urlParam = url.searchParams.get('url')
+    const urlParam = searchParams.get('url')
     if (urlParam) {
       setCompanyUrl(urlParam)
     }
-  }, [])
+  }, [searchParams])
 
   const handleContinue = () => {
     router.push('/grader/contact')

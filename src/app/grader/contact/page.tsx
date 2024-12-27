@@ -99,9 +99,9 @@ export default function ContactPage() {
 
       // Redirect based on budget
       if (budget === '0' || budget === '0-1k') {
-        router.push('/grader/not-qualified')
+        window.location.href = '/grader/not-qualified'
       } else {
-        router.push('/grader/success')
+        window.location.href = '/grader/success'
       }
     } catch (error) {
       console.error('Error in form submission:', error)
@@ -247,7 +247,7 @@ export default function ContactPage() {
                 className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
                   ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
               >
-                {isSubmitting ? 'Submitting...' : 'Continue'}
+                Continue
               </button>
             </div>
           </form>
@@ -257,12 +257,13 @@ export default function ContactPage() {
       {/* Mobile Sticky Footer */}
       <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg md:hidden">
         <button
-          onClick={handleSubmit}
+          type="submit"
+          form="contact-form"
           disabled={!isValid || isSubmitting}
           className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
             ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
         >
-          {isSubmitting ? 'Submitting...' : 'Continue'}
+          Continue
         </button>
       </div>
     </main>

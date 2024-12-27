@@ -71,35 +71,27 @@ export default function ContactPage() {
     
     setIsSubmitting(true)
     
+    if (budget === '0' || budget === '0-1k') {
+      window.location.replace('/grader/not-qualified')
+    } else {
+      window.location.replace('/grader/success')
+    }
+    
     try {
-      const { error } = await supabase
-        .from('leads')
+      await supabase
+        .from('new_submissions')
         .insert([{
           email: localStorage.getItem('userEmail') || '',
           company_url: localStorage.getItem('company_url') || '',
-          objective: 'Looking for New Growth Channels',
           metric_goal: 'Increase Revenue',
-          budget,
-          phone_region: phoneRegion,
+          budget: budgetOptions.find(opt => opt.value === budget)?.label || budget,
           phone_number: phoneNumber,
+          phone_region: phoneRegion,
           completed: true,
           is_read: false
         }])
-
-      if (error) {
-        console.error('Error creating lead:', error)
-        setIsSubmitting(false)
-        return
-      }
-
-      if (budget === '0' || budget === '0-1k') {
-        window.location.href = '/grader/not-qualified'
-      } else {
-        window.location.href = '/grader/success'
-      }
     } catch (error) {
       console.error('Error in form submission:', error)
-      setIsSubmitting(false)
     }
   }
 

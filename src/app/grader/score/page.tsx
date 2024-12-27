@@ -3,7 +3,6 @@
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 
 export default function ScorePage() {
@@ -11,20 +10,12 @@ export default function ScorePage() {
   const [companyUrl, setCompanyUrl] = useState('')
 
   useEffect(() => {
-    const getLatestSubmission = async () => {
-      const { data, error } = await supabase
-        .from('new_submissions')
-        .select('company_url')
-        .order('created_at', { ascending: false })
-        .limit(1)
-      
-      if (data && data[0] && data[0].company_url) {
-        const url = data[0].company_url.replace(/^(https?:\/\/)?(www\.)?/, '')
-        setCompanyUrl(url)
-      }
+    // Get URL from query parameters
+    const url = new URL(window.location.href)
+    const urlParam = url.searchParams.get('url')
+    if (urlParam) {
+      setCompanyUrl(urlParam)
     }
-
-    getLatestSubmission()
   }, [])
 
   const handleContinue = () => {
@@ -34,7 +25,7 @@ export default function ScorePage() {
   return (
     <main className="min-h-screen bg-[#F9F8F6]">
       <div className="container mx-auto px-4 pt-4">
-        {/* Header with Logo and Progress Bar */}
+        {/* Header with Logo */}
         <div className="flex items-center mb-10">
           <div className="w-32">
             <Image
@@ -44,16 +35,6 @@ export default function ScorePage() {
               height={34}
               priority
             />
-          </div>
-          <div className="flex-1 flex justify-center items-center">
-            <div className="flex gap-2 w-96 -ml-16">
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-1 rounded-full flex-1 bg-[#EA592D]"
-                />
-              ))}
-            </div>
           </div>
         </div>
 
@@ -76,14 +57,14 @@ export default function ScorePage() {
           </div>
 
           {/* Analysis Cards */}
-          <div className="grid grid-cols-[2fr_1fr] gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-6 mb-12">
             {/* Left Card */}
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-200">
               <h2 className="text-lg font-semibold mb-3 text-left">Breakdown</h2>
               <p className="text-xs text-gray-700 mb-5 text-left">
                 Whilst your website suggests strong differentiation your monetisation is weak.
               </p>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
                     <div className="w-10 h-10 rounded-full bg-[#EA592D]/10 flex items-center justify-center">
@@ -163,7 +144,7 @@ export default function ScorePage() {
         </div>
 
         {/* Continue Button */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 z-50">
           <div className="container mx-auto max-w-4xl">
             <Link 
               href="/grader/contact" 

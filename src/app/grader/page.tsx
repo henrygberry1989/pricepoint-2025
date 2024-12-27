@@ -133,13 +133,13 @@ export default function GraderPage() {
             </div>
 
             {/* Results Preview */}
-            <div className="w-[95%] sm:w-[85%] mx-auto mt-auto">
+            <div className="w-[95%] sm:w-[85%] mx-auto mt-8">
               <Image
                 src="/grader/results-preview.png"
                 alt="Website Grader Results Preview"
                 width={1400}
                 height={788}
-                className="rounded-t-lg shadow-xl"
+                className="rounded-t-lg shadow-xl transform -translate-y-8"
                 priority
               />
             </div>

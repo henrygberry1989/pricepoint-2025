@@ -157,7 +157,7 @@ export default function ContactPage() {
   )
 
   return (
-    <main className="min-h-screen bg-[#F9F8F6] relative pb-24">
+    <main className="min-h-screen bg-[#F9F8F6] relative pb-24 md:pb-12">
       <div className="container mx-auto px-4 pt-4">
         {/* Header with Logo and Progress Bar */}
         <div className="flex items-center mb-16">
@@ -185,7 +185,7 @@ export default function ContactPage() {
 
         {/* Main Content */}
         <div className="max-w-xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} id="contact-form" className="space-y-8">
             {/* Budget Selection */}
             <div>
               <label className="block text-lg font-medium mb-4">
@@ -262,37 +262,32 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Continue Button */}
-            <div className="absolute bottom-8 right-8">
+            {/* Desktop Submit Button */}
+            <div className="hidden md:block">
               <button
                 type="submit"
                 disabled={!isValid || isSubmitting}
-                className={`inline-flex items-center px-8 py-3 rounded-lg ${
-                  isValid && !isSubmitting
-                    ? 'bg-[#EA592D] text-white hover:bg-[#d54d24]'
-                    : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                } transition-colors relative`}
+                className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
+                  ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
               >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    Continue
-                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </>
-                )}
+                Continue
               </button>
             </div>
           </form>
         </div>
+      </div>
+
+      {/* Mobile Sticky Footer */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg md:hidden">
+        <button
+          type="submit"
+          form="contact-form"
+          disabled={!isValid || isSubmitting}
+          className={`w-full px-8 py-3 rounded-lg font-playfair text-white transition-colors
+            ${isValid && !isSubmitting ? 'bg-[#EA592D] hover:bg-[#d54d24]' : 'bg-gray-300 cursor-not-allowed'}`}
+        >
+          Continue
+        </button>
       </div>
     </main>
   )

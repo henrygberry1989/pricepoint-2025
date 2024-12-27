@@ -51,7 +51,7 @@ export default function Home() {
             {/* CTA Button - Positioned to intersect with oil painting */}
             <div className="relative z-20 text-center pt-5" style={{ marginBottom: '-1.75rem' }}>
               <Link 
-                href="/funnel-1"
+                href="/grader"
                 className="inline-block px-8 py-4 text-xl text-white bg-[#EA592D] rounded-lg hover:bg-[#d54d24] transition-colors font-['Instrument_Serif']"
               >
                 Grade Your Site for $0

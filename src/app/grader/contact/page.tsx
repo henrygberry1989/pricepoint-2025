@@ -99,9 +99,9 @@ export default function ContactPage() {
 
       // Redirect based on budget
       if (budget === '0' || budget === '0-1k') {
-        window.location.href = '/grader/not-qualified'
+        router.push('/grader/not-qualified')
       } else {
-        window.location.href = '/grader/success'
+        router.push('/grader/success')
       }
     } catch (error) {
       console.error('Error in form submission:', error)

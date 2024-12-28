@@ -20,6 +20,7 @@ interface Lead {
   created_at: string
   completed: boolean
   is_read: boolean
+  flow_source: string
 }
 
 export default function AdminDashboard() {
@@ -222,7 +223,7 @@ export default function AdminDashboard() {
           </div>
 
           <div className="bg-white rounded-lg shadow">
-            <div className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr] gap-4 px-6 py-3 border-b border-gray-200 text-sm text-gray-500 divide-x divide-gray-200">
+            <div className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr_1fr] gap-4 px-6 py-3 border-b border-gray-200 text-sm text-gray-500 divide-x divide-gray-200">
               <div className="flex items-center gap-4">
                 <input
                   type="checkbox"
@@ -235,12 +236,13 @@ export default function AdminDashboard() {
               <div className="text-center pl-4">Bottleneck</div>
               <div className="text-center pl-4">Company</div>
               <div className="text-center pl-4">Budget</div>
+              <div className="text-center pl-4">Source</div>
             </div>
 
             {filteredLeads.map((lead) => (
               <div
                 key={lead.id}
-                className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr] gap-4 px-6 py-4 border-b border-gray-100 text-sm items-center hover:bg-gray-50 divide-x divide-gray-200"
+                className="grid grid-cols-[auto_1.5fr_1fr_1fr_1fr_1fr] gap-4 px-6 py-4 border-b border-gray-100 text-sm items-center hover:bg-gray-50 divide-x divide-gray-200"
               >
                 <div className="flex items-center gap-4">
                   <input
@@ -267,6 +269,11 @@ export default function AdminDashboard() {
                 <div className="text-center pl-4">
                   <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium ${getBudgetPillColor(lead.budget).bg} ${getBudgetPillColor(lead.budget).text}`}>
                     {lead.budget}
+                  </span>
+                </div>
+                <div className="text-center pl-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+                    {lead.flow_source || 'redesign'}
                   </span>
                 </div>
               </div>

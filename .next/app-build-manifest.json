@@ -1,36 +1,22 @@
 {
   "pages": {
-    "/redesign/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/redesign/layout.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/redesign/page": [
+    "/bonus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/redesign/page.css",
-      "static/chunks/app/redesign/page.js"
+      "static/css/app/bonus/page.css",
+      "static/chunks/app/bonus/page.js"
     ],
-    "/page": [
+    "/bonus/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/grader/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/grader/page.js"
-    ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/css/app/bonus/layout.css",
+      "static/chunks/app/bonus/layout.js"
     ]
   }
 }

@@ -134,46 +134,48 @@ export default function RedesignFlow() {
         </div>
       </div>
 
-      {/* Social Proof */}
-      <div className="flex items-center justify-center gap-2 mb-6">
-        <div className="flex gap-1">
-          {[...Array(5)].map((_, i) => (
-            <svg key={i} className="w-6 h-6 text-[#FF4405]" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
-        </div>
-        <p className={`${inter.className} text-sm text-gray-600`}>Trusted by 9,700+ companies</p>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-2xl w-full">
-        <h1 className={`${instrumentSerif.className} text-4xl md:text-5xl text-center mb-4`}>
-          Free 1-Page Redesign to Improve Monetization
-        </h1>
-        <p className={`${instrumentSerif.className} text-center text-lg md:text-xl mb-8 text-gray-700`}>
-          Recover ad spend faster and outspend your competition
-        </p>
-
-        {/* Hero Image (Before/After) */}
-        <div className="mb-4 max-w-[90%] mx-auto">
-          <Image
-            src="/images/redesign/before-after.png"
-            alt="Conversion rate improvement from 31% to 59%"
-            width={800}
-            height={400}
-            className="w-full rounded-lg"
-            priority
-          />
+      <div className="w-full mt-40 md:mt-0">
+        {/* Social Proof */}
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="flex gap-1">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-6 h-6 text-[#FF4405]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <p className={`${inter.className} text-sm text-gray-600`}>Trusted by 9,700+ companies</p>
         </div>
 
-        {/* CTA Button */}
-        <button 
-          onClick={handleStart}
-          className={`${instrumentSerif.className} w-full bg-[#FF4405] text-white rounded-lg py-4 px-6 text-lg font-medium hover:bg-[#E63D04] transition-colors fixed bottom-4 left-0 right-0 mx-4 md:static md:mx-0`}
-        >
-          Claim Your Free 1-Page Redesign
-        </button>
+        {/* Main Content */}
+        <div className="max-w-2xl mx-auto w-full">
+          <h1 className={`${instrumentSerif.className} text-4xl md:text-5xl text-center mb-4`}>
+            Free 1-Page Redesign to Improve Monetization
+          </h1>
+          <p className={`${instrumentSerif.className} text-center text-lg md:text-xl mb-8 text-gray-700`}>
+            Recover ad spend faster and outspend your competition
+          </p>
+
+          {/* Hero Image (Before/After) */}
+          <div className="mb-4 mx-auto">
+            <Image
+              src="/images/redesign/before-after.png"
+              alt="Conversion rate improvement from 31% to 59%"
+              width={800}
+              height={400}
+              className="w-full rounded-lg"
+              priority
+            />
+          </div>
+
+          {/* CTA Button */}
+          <button 
+            onClick={handleStart}
+            className={`${instrumentSerif.className} w-full bg-[#FF4405] text-white rounded-lg py-4 px-6 text-lg font-medium hover:bg-[#E63D04] transition-colors fixed bottom-4 left-0 right-0 mx-4 md:static md:mx-0 md:max-w-2xl md:mx-auto`}
+          >
+            Claim Your Free 1-Page Redesign
+          </button>
+        </div>
       </div>
     </main>
   )

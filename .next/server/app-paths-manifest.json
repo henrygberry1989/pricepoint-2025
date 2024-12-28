@@ -1,3 +1,7 @@
 {
+  "/admin/page": "app/admin/page.js",
+  "/redesign/page": "app/redesign/page.js",
+  "/bonus/onboarding/bottleneck/page": "app/bonus/onboarding/bottleneck/page.js",
+  "/bonus/onboarding/calendar/page": "app/bonus/onboarding/calendar/page.js",
   "/bonus/page": "app/bonus/page.js"
 }

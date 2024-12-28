@@ -2,8 +2,14 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Instrument_Serif } from 'next/font/google'
 import { supabase } from '@/lib/supabase'
 import { ProgressBar } from '@/components/progress-bar'
+
+const instrumentSerif = Instrument_Serif({ 
+  weight: '400',
+  subsets: ['latin'],
+})
 
 const BOTTLENECKS = [
   'Slow Payback Periods',
@@ -54,8 +60,8 @@ export default function BottleneckPage() {
         <ProgressBar currentStep={2} totalSteps={3} />
         
         <div className="mt-12 bg-white rounded-lg p-6 shadow-sm">
-          <h1 className="text-3xl mb-8">
-            What's the biggest <span className="text-[#EA592D] font-semibold">bottleneck</span> to your company's growth?
+          <h1 className={`text-3xl mb-8 ${instrumentSerif.className}`}>
+            What's the <span className="text-[#EA592D] font-semibold">biggest bottleneck</span> to your company's growth?
           </h1>
           
           <div className="space-y-4 mb-8">
@@ -63,7 +69,7 @@ export default function BottleneckPage() {
               <button
                 key={bottleneck}
                 onClick={() => setSelectedBottleneck(bottleneck)}
-                className={`w-full p-4 rounded-lg border text-left transition-colors ${
+                className={`w-full p-4 rounded-lg border text-left transition-colors ${instrumentSerif.className} ${
                   selectedBottleneck === bottleneck
                     ? 'border-[#EA592D] bg-[#EA592D]/10'
                     : 'border-gray-300 hover:border-[#EA592D]'
@@ -79,7 +85,7 @@ export default function BottleneckPage() {
           <button
             onClick={handleContinue}
             disabled={isLoading}
-            className="w-full bg-[#EA592D] text-white py-4 px-8 rounded-lg hover:bg-[#d54d26] transition-colors fixed bottom-4 left-4 right-4 md:relative md:bottom-auto md:left-auto md:right-auto"
+            className={`w-full bg-[#EA592D] text-white py-4 px-8 rounded-lg hover:bg-[#d54d26] transition-colors fixed bottom-4 left-4 right-4 md:relative md:bottom-auto md:left-auto md:right-auto ${instrumentSerif.className}`}
           >
             {isLoading ? 'Processing...' : 'Continue'}
           </button>

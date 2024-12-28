@@ -30,11 +30,20 @@ export default function BonusPage() {
         }),
       })
 
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.message || 'Failed to create checkout session')
+      }
+
       const { sessionId } = await response.json()
       const stripe = await stripePromise
-      await stripe?.redirectToCheckout({ sessionId })
-    } catch (error) {
-      console.error('Error:', error)
+      if (!stripe) {
+        throw new Error('Stripe not initialized')
+      }
+
+      await stripe.redirectToCheckout({ sessionId })
+    } catch (error: any) {
+      console.error('Purchase error:', error)
     } finally {
       setIsLoading(false)
     }
@@ -49,12 +58,12 @@ export default function BonusPage() {
       <main className="min-h-screen md:pl-0 md:pr-8 p-4 max-w-7xl mx-auto mt-16">
         {/* Mobile View */}
         <div className="md:hidden">
-          <h2 className={`${instrumentSerif.className} text-4xl text-left font-normal mb-12`}>
+          <h2 className={`${instrumentSerif.className} text-3xl text-left font-normal mb-1`}>
             Monetization-Driven UI<br />
             Redesign + 3 FREE Bonus Items
           </h2>
 
-          <div className="relative h-[400px] mb-12">
+          <div className="relative h-[250px] mb-1">
             <Image 
               src="/images/bonus/hero-image.png"
               alt="Before and After Comparison"
@@ -64,56 +73,56 @@ export default function BonusPage() {
             />
           </div>
 
-          <div className="mb-8">
+          <div className="mt-1">
             <span className="text-gray-500 line-through text-3xl">$965</span>
             <span className="text-[#EA592D] text-5xl ml-4">$124</span>
           </div>
 
-          <div className="flex items-center gap-2 mb-12">
-            <div className="flex text-[#EA592D] text-2xl">
+          <div className="flex items-center gap-2 mb-4 mt-4">
+            <div className="flex text-[#EA592D] text-xl">
               {'★★★★★'}
             </div>
-            <span className="text-lg">4.8</span>
-            <span className="text-lg">·</span>
-            <span className="text-lg">Trusted by 9,700+ companies</span>
+            <span className="text-base">4.8</span>
+            <span className="text-base">·</span>
+            <span className="text-xs">Trusted by 9,700+ companies</span>
           </div>
 
-          <h3 className="text-3xl font-bold mb-8">YOUR FREE GIFTS!</h3>
+          <h3 className="text-3xl font-bold mb-4">YOUR FREE GIFTS!</h3>
 
-          <div className="grid grid-cols-1 gap-6 mb-12">
-            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-6">
+          <div className="grid grid-cols-3 gap-2 mb-1">
+            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-4">
               <Image 
                 src="/images/bonus/bonus-page-redesign.png"
                 alt="Bonus Page Redesign"
                 width={400}
                 height={250}
-                className="w-full mb-4"
+                className="w-full"
               />
             </div>
-            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-6">
+            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-4">
               <Image 
                 src="/images/bonus/growth-checklists.png"
                 alt="Design Checklists"
                 width={400}
                 height={250}
-                className="w-full mb-4"
+                className="w-full"
               />
             </div>
-            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-6">
+            <div className="bg-[#EA592D]/15 border-2 border-[#EA592D] rounded-lg p-4">
               <Image 
                 src="/images/bonus/consultation-call.png"
                 alt="Consultation Call"
                 width={400}
                 height={250}
-                className="w-full mb-4"
+                className="w-full"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 mb-20 text-center">
-            <h4 className="text-xl font-bold">+ 1 BONUS PAGE<br />REDESIGN</h4>
-            <h4 className="text-xl font-bold">DESIGN + GROWTH<br />CHECKLISTS (x2)</h4>
-            <h4 className="text-xl font-bold">30 MIN<br />CONSULTATION CALL</h4>
+          <div className="grid grid-cols-3 gap-2 mb-32 text-center">
+            <h4 className="text-[13px] font-bold">+ 1 BONUS PAGE<br />REDESIGN</h4>
+            <h4 className="text-[13px] font-bold">DESIGN + GROWTH<br />CHECKLISTS (x2)</h4>
+            <h4 className="text-[13px] font-bold">30 MIN<br />CONSULTATION CALL</h4>
           </div>
         </div>
 

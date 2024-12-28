@@ -29,7 +29,7 @@ export default function SuccessPage() {
           You Qualify for a Free Strategy Call
         </p>
         
-        <h1 className="text-2xl md:text-3xl font-playfair mb-8 px-2">
+        <h1 className="text-2xl md:text-3xl font-playfair mb-8 px-2 mt-16 md:mt-0">
           Receive Tailored Insights from 5+ Hours of Research Just For You
         </h1>
 

@@ -1,11 +1,5 @@
 {
   "pages": {
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
     "/bonus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -17,6 +11,51 @@
       "static/chunks/main-app.js",
       "static/css/app/bonus/layout.css",
       "static/chunks/app/bonus/layout.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/bonus/onboarding/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/bonus/onboarding/page.css",
+      "static/chunks/app/bonus/onboarding/page.js"
+    ],
+    "/bonus/onboarding/bottleneck/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/bonus/onboarding/bottleneck/page.css",
+      "static/chunks/app/bonus/onboarding/bottleneck/page.js"
+    ],
+    "/bonus/onboarding/calendar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/bonus/onboarding/calendar/page.css",
+      "static/chunks/app/bonus/onboarding/calendar/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/redesign/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/redesign/layout.js"
+    ],
+    "/redesign/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/redesign/page.css",
+      "static/chunks/app/redesign/page.js"
     ]
   }
 }

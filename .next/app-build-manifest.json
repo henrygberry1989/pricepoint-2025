@@ -1,45 +1,31 @@
 {
   "pages": {
+    "/redesign/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/redesign/layout.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/grader/page": [
+    "/redesign/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/grader/page.js"
+      "static/css/app/redesign/page.css",
+      "static/chunks/app/redesign/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/grader/results/page": [
+    "/grader/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/grader/results/page.js"
-    ],
-    "/grader/score/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/grader/score/page.js"
-    ],
-    "/grader/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/grader/contact/page.js"
-    ],
-    "/grader/success/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/grader/success/page.js"
-    ],
-    "/grader/trust/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/grader/trust/page.js"
+      "static/chunks/app/grader/page.js"
     ],
     "/admin/page": [
       "static/chunks/webpack.js",

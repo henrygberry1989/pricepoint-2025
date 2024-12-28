@@ -232,7 +232,7 @@ export default function AdminDashboard() {
                 />
               </div>
               <div className="text-left pl-4">Email</div>
-              <div className="text-center pl-4">Phone</div>
+              <div className="text-center pl-4">Bottleneck</div>
               <div className="text-center pl-4">Company</div>
               <div className="text-center pl-4">Budget</div>
             </div>
@@ -256,8 +256,10 @@ export default function AdminDashboard() {
                 <div className={`text-left pl-4 text-gray-900 ${!lead.is_read ? 'font-semibold' : ''}`}>
                   {lead.email}
                 </div>
-                <div className={`text-center pl-4 text-gray-600 ${!lead.is_read ? 'font-semibold' : ''}`}>
-                  {lead.phone_region} {lead.phone_number}
+                <div className="text-center pl-4">
+                  <span className={`inline-flex items-center px-3 py-1 rounded-md text-xs font-medium ${getObjectivePillColor(lead.objective).bg} ${getObjectivePillColor(lead.objective).text}`}>
+                    {lead.objective}
+                  </span>
                 </div>
                 <div className="text-center pl-4 text-gray-600">
                   {lead.company_url}
